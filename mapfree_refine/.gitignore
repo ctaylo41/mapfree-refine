@@ -1,7 +1,0 @@
-data/mapfree/
-cache/
-checkpoints/
-*.npz
-*.pth
-__pycache__/
-ipynb_checkpoints/
