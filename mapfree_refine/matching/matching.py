@@ -22,7 +22,7 @@ class MAST3RWrapper():
 
         img0_resize_size = images[0]["true_shape"]
         img1_resize_size = images[1]["true_shape"]
-
+        print(img0_resize_size)
         print(img0_resize_size, img0_resize_size.shape)
         img0_sx, img0_sy = img0_resize_size[0]/img0_size[1], img0_resize_size[1]/img0_size[0]
 
