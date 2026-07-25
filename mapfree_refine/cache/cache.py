@@ -1,7 +1,7 @@
 import numpy as np
 from pathlib import Path
 import os
-
+import shutil, os
 
 class CorrespondanceCache:
     def __init__(self,cache_root):
@@ -47,9 +47,10 @@ class CorrespondanceCache:
         )
 
         final = self._path(scene_id)
-        tmp = final.with_suffix(".npz.tmp")
-        np.savez_compressed(tmp, **arrays)
-        os.replace(tmp, final)
+        local_tmp = f"/content/{scene_id}.npz"      # local disk — reliable write
+        np.savez_compressed(local_tmp, **arrays)
+        shutil.copy(local_tmp, final)               # copy to Drive
+        os.remove(local_tmp)
 
     def read_scene(self, scene_id):
         with np.load(self._path(scene_id)) as data:
