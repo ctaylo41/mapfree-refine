@@ -54,8 +54,8 @@ class Solvers():
         if not success or inliers is None:
             return None
 
-        R, _  = cv2.Rodrigues(rvec)
+        R_mat, _  = cv2.Rodrigues(rvec)
         t = tvec.reshape(3)
 
-        return Tf.from_components(t, R.from_matrix(R)), inliers
+        return Tf.from_components(t, R.from_matrix(R_mat)), inliers
     
