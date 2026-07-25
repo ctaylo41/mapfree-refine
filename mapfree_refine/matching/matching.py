@@ -20,8 +20,8 @@ class MAST3RWrapper():
 
         print(images[0].keys())
 
-        img0_resize_size = images[0]["true_shape"][0]
-        img1_resize_size = images[1]["true_shape"][0]
+        img0_resize_size = np.array(images[0]["true_shape"]).reshape(-1)[-2:]
+        img1_resize_size = np.array(images[1]["true_shape"]).reshape(-1)[-2:]
         print(img0_resize_size)
         print(img1_resize_size)
         print(img0_resize_size, img0_resize_size.shape)
