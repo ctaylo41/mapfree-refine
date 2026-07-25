@@ -19,7 +19,7 @@ class MAST3RWrapper():
         images = load_images([img0_path, img1_path], size=512)
 
         # true_shape is [H, W]; [-2:] -> [H, W], so [0]=H, [1]=W
-        img0_resize_size = np.array()(images[0]["true_shape"]).reshape(-1)[-2:]
+        img0_resize_size = np.array(images[0]["true_shape"]).reshape(-1)[-2:]
         img1_resize_size = np.array(images[1]["true_shape"]).reshape(-1)[-2:]
 
         # sx = resized_W / orig_W ; sy = resized_H / orig_H
@@ -28,14 +28,14 @@ class MAST3RWrapper():
 
         K0_resize = K0.copy()
         K1_resize = K1.copy()
-
+        print("new")
         K0_resize[0][0] *= img0_sx   # fx
-        K0_resize[0][2] *= img0_sx   # 'x
+        K0_resize[0][2] *= img0_sx   # cx
         K0_resize[1][1] *= img0_sy   # fy
         K0_resize[1][2] *= img0_sy   # cy
 
         K1_resize[0][0] *= img1_sx
-        K1_resize[0][0] *= img1_sx
+        K1_resize[0][2] *= img1_sx
         K1_resize[1][1] *= img1_sy
         K1_resize[1][2] *= img1_sy
 
