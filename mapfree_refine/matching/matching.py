@@ -20,13 +20,14 @@ class MAST3RWrapper():
 
         print(images[0].keys())
 
-        img0_resize_size = images[0]["true_shape"][0]
-        img1_resize_size = images[1]["true_shape"][0]
+        img0_resize_size = images[0]["true_shape"]
+        img1_resize_size = images[1]["true_shape"]
 
         print(img0_resize_size, img0_resize_size.shape)
-        img0_sx, img0_sy = img0_resize_size[1]/img0_size[1], img0_resize_size[0]/img0_size[0]
+        img0_sx, img0_sy = img0_resize_size[0]/img0_size[1], img0_resize_size[1]/img0_size[0]
 
-        img1_sx, img1_sy = img1_resize_size[1]/img1_size[1], img1_resize_size[0]/img1_size[0]
+        img1_sx, img1_sy = img1_resize_size[0]/img1_size[1], img1_resize_size[1]/img1_size[0]
+        print(img0_sx, img0_sy, img1_sx, img1_sx)
 
         K0_resize = K0.copy()
         K1_resize = K1.copy()
