@@ -1,5 +1,4 @@
 data/mapfree/
-cache/
 checkpoints/
 *.npz
 *.pth
