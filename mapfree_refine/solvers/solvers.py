@@ -42,7 +42,8 @@ class Solvers():
 
     @staticmethod
     def pnp(pts3d_ref, pts2d_query, K_query, reprojection_threshold=3.0, iters=1000, conf=0.999):
-
+        if len(pts3d_ref) < 4:
+            return None
         success, rvec, tvec, inliers = cv2.solvePnPRansac(objectPoints = pts3d_ref.astype(np.float64),
                                                         imagePoints = pts2d_query.astype(np.float64),
                                                         cameraMatrix = K_query,
